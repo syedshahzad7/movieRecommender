@@ -1,0 +1,169 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Registeration Form</title>       
+</head>
+<style>
+	:root {
+   --font-style: 'Nunito Sans', sans-serif;
+}
+
+* {
+   box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d0000;
+}
+
+.header .logo {
+      font-size: 40px;
+      font-family: 'Sriracha', cursive;
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 3px;
+    }
+
+
+
+body {
+   background: #ffffff;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://cdn.shopify.com/s/files/1/1259/9857/products/a7161cd0-4f03-4284-b7a4-f3429edc5358_1024x740.jpg?v=1602660879");
+   font-family: var(--font-style);
+}
+
+.login-box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 400px;
+   padding: 40px;
+   transform: translate(-50%, -50%);
+   background: #24170d;
+   box-shadow: 0 15px 25px rgba(249, 203, 192, 0.7);
+   border-radius: 10px;
+}
+
+.login-box h2 {
+   margin: 0 0 30px;
+   padding: 0;
+   color: rgb(217, 211, 211);
+   text-align: center;
+}
+
+.login-box .user-box input {
+   position: relative;
+   width: 100%;
+   padding: 10px 0;
+   font-size: 16px;
+   color: rgb(235, 232, 232);
+   margin-bottom: 30px;
+   border: none;
+   border-bottom: 1px solid #fff;
+   outline: none;
+   background: transparent;
+}
+
+.login-box .user-box label {
+   position: relative;
+   left: 0;
+   top: -60px;
+   padding: 10px 0;
+   font-size: 16px;
+   color: #fff;
+   pointer-events: none;
+   transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+   top: -85px;
+   left: 0;
+   color: hsl(24, 55%, 72%);
+   font-size: 12px;
+}
+
+#submit {
+   padding: 10px 20px;
+   color: #ffffff;
+   font-size: 16px;
+   text-decoration: none;
+   text-transform: uppercase;
+   overflow: hidden;
+   transition: .5s;
+   letter-spacing: 4px;
+   border: 1px solid #311c00;
+   margin: auto;
+}
+
+#submit:hover {
+   background: #6b3232;
+   color: #fff;
+   border-radius: 5px;
+   box-shadow: 0 0 5px #3d0000, 0 0 25px #3d0000, 0 0 50px #3d0000, 0 0 100px #3d0000;
+}
+
+.button-form {
+   display: flex;
+   flex-direction: row;
+   margin-top: 20px;
+}
+
+#register {
+   font-size: 14px;
+   text-decoration: none;
+   color: #ffffff;
+   margin: auto;
+   width: 60%;
+   text-align: center;
+}
+
+#register a {
+   margin: auto;
+   color: #ffe5d5;
+   text-decoration: none;
+}
+  
+</style>
+<body>
+	<header class="header">
+		<a href="#" class="logo">Movie Sage</a>
+	</header>
+<div class="login-box">
+	<h2>USER REGISTERATION</h2>
+	<form action="{{ url_for('register') }}" method="post">
+        {% if mesage is defined and mesage %}
+			<div class="alert alert-warning">{{ mesage }}</div>
+		{% endif %}
+		<div class="user-box">
+			<input type="text" class="form-control" id="name" name="name"  name="name" required>
+		    <label>Enter Name</label>
+		</div>
+		<div class="user-box">
+			<input type="email" class="form-control" id="email" name="email" name="email" required>
+			<label>Enter Email </label>
+		</div>
+		<div class="user-box">
+			<input type="password" class="form-control" id="password" name="password"  name="pswd" required>
+		    <label>Password</label>
+		</div>  
+		
+		<div class="button-form">
+			<a id = "submit">
+			<input type = "submit">
+			</a>
+		 </div>
+	
+		
+		<div id = "register">
+		<p>Already have an account? </p>
+		<a href="{{url_for('login')}}"> 
+			Login Here
+		</a>
+	</form>
+</div>        
+</body>
+</html>

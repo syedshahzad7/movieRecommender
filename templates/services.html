@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Sage</title>
+  <style>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d0000;
+}
+.header .logo {
+  font-size: 25px;
+  font-family: 'Sriracha', cursive;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3d0000;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 35px 20px;
+}
+
+.nav-items :hover {
+   color:rgb(5, 3, 3);
+  }
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://www.oblakoder.org.rs/wp-content/uploads/2021/02/Tivoli_Theatre_screen_w_streetscape_cc_LG-1.jpg");
+   font-family: var(--font-style);
+}
+h1 {
+            text-align: center;
+            font-size: 70px;
+            color: rgb(255, 255, 255);
+            font-style: italic;
+        }
+        .leftside {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+        .labelexpanded{
+            font-size: 20px;
+            font-style: initial;
+            font-display:dark;
+        }
+
+        .labelexpanded>input {
+            display: none;
+        }
+
+        .labelexpanded input:checked+.radio-btns {
+            background-color:rgba(101, 69, 52, 0.655);
+            color: antiquewhite;
+        }
+
+        .radio-btns {
+            display: block;
+            border-radius: 70px;
+            border: 6px solid rgb(69, 20, 20);
+            position: relative;
+            text-align: center;
+            padding: 15px 20px;
+            box-shadow: 10px rgb(145, 57, 57);
+            cursor: pointer;
+            background-color: rgb(253, 218, 218);
+            float:right;
+            margin-right: 230px;
+            margin-top: 50px;
+        }
+        .button-form {
+   display: flex;
+   flex-direction: row;
+   margin-top: 20px;
+}
+</style>
+</head>
+<header class="header">
+  <a href="#" class="logo">Movie Sage</a>
+  <nav class="nav-items">
+    <a href="/start">Back</a>
+  </nav>
+</header>
+<h1>Select the streaming service/s you use</h1>
+<div class="leftside">
+    <label class="labelexpanded">
+        <input type="radio" name="targetgroup">
+        <div class="radio-btns">
+            <img src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-2006.png" height="130px" width="130px">
+            <p>NETFLIX</p>
+
+        </div>
+    </label>
+</div>
+
+<label class="labelexpanded">
+    <input type="radio" name="targetgroup">
+    <div class="radio-btns"> <img
+            src="https://1.bp.blogspot.com/-jX83XpcFnDU/X2cqXltlkbI/AAAAAAAADHI/jvpUTd3EtOUSPP_6UUzTidAQUn-I6OwVACLcBGAsYHQ/w1200-h630-p-k-no-nu/Logo%2BDisney%252B%2BHotstar.png"
+            height="130px" width="130px" />
+        <p>HOTSTAR</p>
+    </div>
+</label>
+
+<label class="labelexpanded">
+    <input type="radio" name="targetgroup">
+    <div class="radio-btns"><img
+            src="https://logos-world.net/wp-content/uploads/2021/02/Amazon-Prime-Video-Logo.png" height="130px"
+            width="130px">
+        <p>AMAZON PRIME </p>
+    </div>
+    <form  action = "/recommendation" method ="post">
+      <button type = "submit">predict</button>
+    </form>
+
+</label>
+</body>

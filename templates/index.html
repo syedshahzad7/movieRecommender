@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url("https://cdn.pixabay.com/photo/2022/02/21/06/11/tablet-7025855_1280.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+      
+    .container {
+        margin: 50px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+    }
+      
+    h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+      
+    label {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+      
+    select {
+        width: 100%;
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+      
+    button {
+        display: block;
+        width: 100%;
+        padding: 8px; /* Adjust the padding to make the button smaller */
+        background-color: #3d0000;
+        color: #fff;
+        font-size: 16px; /* Adjust the font-size to make the button smaller */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+      
+    #recommendations {
+        margin-top: 20px;
+        font-size: 16px;
+        color: white; /* Change the font color to white */
+    }
+  </style>
+</head>
+<body>
+    <h1>Movie Recommender</h1>
+    <label for="movie">Choose a Movie:</label>
+    <select id="movie" name="movie">
+        <!-- Populate the dropdown options with movie titles from your movies_data -->
+        {% for movie in movies_data['title'] %}
+            <option value="{{ movie }}">{{ movie }}</option>
+        {% endfor %}
+    </select>
+    <button onclick="getRecommendations()">Recommend</button>
+
+    <h2>Recommended Movies:</h2>
+    <ul id="recommended_movies">
+        <!-- The recommended movies will be added here dynamically -->
+    </ul>
+
+    <script>
+        function getRecommendations() {
+            const selectedMovie = document.getElementById("movie").value;
+            fetch('/get_recommendations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ movie: selectedMovie })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recommendedMoviesList = document.getElementById("recommended_movies");
+                recommendedMoviesList.innerHTML = ''; // Clear the list before adding new recommendations
+                data.forEach(movie => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = movie;
+                    recommendedMoviesList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Sage</title>
+  
+  <style>
+    .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d0000;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-family: 'Sriracha', cursive;
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3d0000;
+  margin-right: 20px;
+  font-size :20px
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 35px 20px;
+}
+
+.nav-items :hover {
+   color:rgb(5, 3, 3);
+  }
+body {
+   background: #ffffff;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://miro.medium.com/max/1200/1*2cXJ3d6zSMdCCYlSKYXrfQ.jpeg");
+   font-family: var(--font-style);
+}
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10%;
+        }
+        
+        .card {
+            padding: 30px;
+            margin: 2%;
+            background: #c88a8a;
+            width: 100px;
+            height: 100px;
+            box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+            border-radius: 3px;
+            transition: .2s all;
+            cursor: pointer;
+        }
+        
+        .container:hover .card {
+            filter: blur(3px);
+            opacity: .5;
+            transform: scale(.98);
+            box-shadow: none;
+        }
+        
+        .container:hover .card:hover {
+            transform: scale(1);
+            filter: blur(0px);
+            opacity: 1;
+            box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+            background: #471111;
+            color: white;
+        }
+    
+  </style>
+  </head>
+<header class="header">
+    <a href="#" class="logo">Movie Sage</a>
+    <nav class="nav-items">
+      <a href="/">Logout</a>
+    </nav>
+  </header>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <div class="container">
+      <div class="card">
+           <a href="/services" class="next">Movie Recommendation</a>
+      </div>
+      <div class="card">
+          <a href="/visualisation" class="next">Data Visualisation</a>
+      </div>
+      <div class="card">
+          <a href="https://www.beano.com/categories/movie-quizzes">Quiz</a>
+          
+      </div>
+  </div>
+
